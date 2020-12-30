@@ -1,4 +1,8 @@
 #include <raylib-cpp.hpp>
+#include <vector>
+#include <map>
+#include <string>
+#include <variant>
 
 int main() {
     
@@ -8,15 +12,54 @@ int main() {
 
     raylib::Color textColor(LIGHTGRAY);
     raylib::Window w(screenWidth, screenHeight, "Raylib C++ Starter Kit Example");
+
+    // Create main camera
+    raylib::Camera3D camera = raylib::Camera3D(
+            raylib::Vector3(0.f, 10.f, 10.f),
+            raylib::Vector3(0.f, 0.f, 0.f),
+            raylib::Vector3(0.f, 1.f, 0.f),
+            45.f,
+            CAMERA_PERSPECTIVE
+    );
     
     SetTargetFPS(60);
+
+    // TEST 1 - Using a raylib::Model in a map without std::variant.
+
+    // raylib::Model model("assets/models/cube/cube.obj");
+
+    // std::map<std::string, raylib::Model> map = std::map<std::string, raylib::Model>();
+
+    // map.insert({"model", model});
+
+    // TEST 2 - Using a raylib::Model in a map with std::variant.
+
+    // raylib::Model variantModel("assets/models/cube/cube.obj");
+
+    // std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>> variantMap = std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>>();
+
+    // variantMap.insert({"model", variantModel});
+
+    // TEST 3 - Using a normal Model in a map without Variant:
+
+    // Model model = LoadModel("assets/models/cube/cube.obj");
+
+    // std::map<std::string, Model> map = std::map<std::string, Model>();
+
+    // map.insert({"model", model});
+
+    // TEST 4 - Using a normal Model in a map with Variant:
+
+    // Model model = LoadModel("assets/models/cube/cube.obj");
+
+    // std::map<std::string, std::variant<Model, Texture2D>> map = std::map<std::string, std::variant<Model, Texture2D>>();
+
+    // map.insert({"model", model});
 
     // Main game loop
     while (!w.ShouldClose()) // Detect window close button or ESC key
     {
         // Update
-
-        // TODO: Update your variables here
 
         // Draw
         BeginDrawing();
