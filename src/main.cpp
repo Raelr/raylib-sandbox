@@ -40,7 +40,15 @@ int main() {
 
     // variantMap.insert({"model", variantModel});
 
-    // TEST 3 - Using a normal Model in a map without Variant:
+    // TEST 3 - Using a raylib::Model with a variant that was directly instantiated/
+
+    // raylib::Model model("assets/models/cube/cube.obj");
+
+    // std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>> map = std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>>();
+
+    // map.insert({"model", std::variant<raylib::Model, raylib::Texture2D>(model)});
+
+    // TEST 4 - Using a normal Model in a map without Variant:
 
     // Model model = LoadModel("assets/models/cube/cube.obj");
 
@@ -48,7 +56,7 @@ int main() {
 
     // map.insert({"model", model});
 
-    // TEST 4 - Using a normal Model in a map with Variant:
+    // TEST 5 - Using a normal Model in a map with Variant:
 
     // Model model = LoadModel("assets/models/cube/cube.obj");
 
