@@ -26,43 +26,43 @@ int main() {
 
     // TEST 1 - Using a raylib::Model in a map without std::variant.
 
-    // raylib::Model model("assets/models/cube/cube.obj");
+    // std::map<std::string, raylib::Model*> map = std::map<std::string, raylib::Model*>();
 
-    // std::map<std::string, raylib::Model> map = std::map<std::string, raylib::Model>();
+    // raylib::Model model = raylib::Model("assets/models/cube/cube.obj");
 
-    // map.insert({"model", model});
+    // map.insert({"model", &model});
 
     // TEST 2 - Using a raylib::Model in a map with std::variant.
 
     // raylib::Model variantModel("assets/models/cube/cube.obj");
 
-    // std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>> variantMap = std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>>();
+    // auto variantMap = std::map<std::string, std::variant<raylib::Model*, raylib::Texture2D*>>();
 
-    // variantMap.insert({"model", variantModel});
+    // variantMap.insert({"model", &variantModel});
 
     // TEST 3 - Using a raylib::Model with a variant that was directly instantiated/
 
     // raylib::Model model("assets/models/cube/cube.obj");
 
-    // std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>> map = std::map<std::string, std::variant<raylib::Model, raylib::Texture2D>>();
+    // auto map = std::map<std::string, std::variant<raylib::Model*, raylib::Texture2D*>>();
 
-    // map.insert({"model", std::variant<raylib::Model, raylib::Texture2D>(model)});
+    // map.insert({"model", std::variant<raylib::Model*, raylib::Texture2D*>(&model)});
 
     // TEST 4 - Using a normal Model in a map without Variant:
 
     // Model model = LoadModel("assets/models/cube/cube.obj");
 
-    // std::map<std::string, Model> map = std::map<std::string, Model>();
+    // auto map = std::map<std::string, Model*>();
 
-    // map.insert({"model", model});
+    // map.insert({"model", &model});
 
     // TEST 5 - Using a normal Model in a map with Variant:
 
     // Model model = LoadModel("assets/models/cube/cube.obj");
 
-    // std::map<std::string, std::variant<Model, Texture2D>> map = std::map<std::string, std::variant<Model, Texture2D>>();
+    // auto map = std::map<std::string, std::variant<Model*, Texture2D*>>();
 
-    // map.insert({"model", model});
+    // map.insert({"model", &model});
 
     // Main game loop
     while (!w.ShouldClose()) // Detect window close button or ESC key
